@@ -5,6 +5,20 @@ from preproccesing import create_image_slices, create_union_image
 
 
 def predict_small_image(image_path, visualise=True):
+
+    """Predict and draw crown of trees on an image
+
+        :param path_to_weights: str
+            full path to a file with neural network weights (with extend .h5)
+        :param path_to_small_image: str
+            full path to an image for create a prediction
+        :param visialise: bool
+            if is true then function will been draw crown of trees on got image
+        :return:
+            if visialise parameter is true then function return count of prediction trees and an image with drew predicted crown of trees
+            else function return only count of prediction tree
+    """
+
     big_image = io.imread(image_path)
     count_trees, shapes = count_trees_on_image(big_image)
 
@@ -18,6 +32,22 @@ def predict_small_image(image_path, visualise=True):
 
 
 def predict_big_image(image_path, size_of_slice=512, visualise=True):
+
+    """Predict and draw crown of trees on a big image
+
+        :param path_to_weights: str
+            full path to a file with neural network weights (with extend .h5)
+        :param path_to_big_image: str
+            full path to an image for create a prediction
+        :param size_of_slice: int
+           image size (width and height) into which a big image will be split
+        :param visialise: bool
+            if is true then function will been draw crown of trees on got image
+        :return:
+            if visialise parameter is true then function return count of prediction trees and an image with drew predicted crown of trees
+            else function return only count of prediction tree
+    """
+
     big_image = io.imread(image_path)
     slices = create_image_slices(big_image, size_of_slice, size_of_slice)
 

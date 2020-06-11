@@ -11,6 +11,15 @@ import matplotlib.pyplot as plt
 
 
 def create(path_to_resources_folder, path_to_save_folder):
+    """Generate training data set for Mask R-CNN
+
+    :param path_to_resources_folder: str
+        full path to a folder containing image files for creating training data set
+    :param path_to_save_folder: str
+       full path to a folder where should be save a created data set
+    :return: nothing
+    """
+
     base_img_name = "image_"
     base_img_ext = ".png"
     base_shape_ext = ".shp"
@@ -47,17 +56,6 @@ def create(path_to_resources_folder, path_to_save_folder):
 
             shape_path = join(path_to_save_folder, base_img_name + str(counter_images) + base_shape_ext)
             ser_pickle = pickle.dump(processed_shapes, open(shape_path, 'wb'), protocol=pickle.HIGHEST_PROTOCOL)
-
-
-            # img_with_shape = draw_shapes(resize_img.copy(), shapes, 1)
-            # img_with_shape = draw_dots(img_with_shape, shapes, 2, 1)
-            # plt.imshow(img_with_shape)
-            # plt.show()
-
-            # # my option
-            # img_with_shape = draw_hull_shapes(resize_img.copy(), processed_shapes, 1)
-            # plt.imshow(img_with_shape)
-            # plt.show()
 
             counter_images = counter_images + 1
 

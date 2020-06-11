@@ -13,6 +13,7 @@ import pickle
 
 
 class ShapesDataSet(utils.Dataset):
+    """Class for load data set"""
     def load_trees(self, dataset_dir, start_number, end_number, width, height):
         if not exists(dataset_dir):
             raise Exception("Dataset directory not exist")
@@ -70,6 +71,33 @@ def train_mrcnn(path_to_dataset,
                 end_of_validate_dataset,
                 train_head_epochs,
                 train_all_epochs):
+
+    """Train Mask R-CNN neural network
+
+    :param path_to_dataset: str
+        full path to folder when need to load train data set
+    :param path_to_logs: str
+        full path to directory when need to save train logs
+    :param path_to_base_weights: str
+        full path to file with neural network weights
+    :param path_to_save_weights: str
+        full path to folder when need to save weights trained network
+    :param start_of_train_dataset: int
+        start index of train sample from loaded data set
+    :param end_index_of_train_dataset: int
+        end index of train sample from loaded data set
+    :param start_of_validate_dataset: int
+        start index of validate sample from loaded data set
+    :param end_of_validate_dataset: int
+        end index of validate sample from loaded data set
+    :param train_head_epochs: int
+        count of epochs for train head of neural network
+    :param train_all_epochs: int
+        count of epochs for train all layers of neural network
+    :return:
+        nothing
+    """
+
     config = TrainConfig()
     config.display()
 

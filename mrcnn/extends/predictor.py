@@ -3,6 +3,8 @@ from mrcnn import model as modellib
 
 
 class Predictor:
+    """Сlass for loading model based on received weights"""
+
     def __init__(self, path_to_weights):
         self.config = InferenceConfig()
         self.model = modellib.MaskRCNN(mode='inference', config=self.config, model_dir="../../logs")
@@ -10,4 +12,5 @@ class Predictor:
         print("Model is loaded!")
 
     def predict(self, image):
+        """Return dictionary of results (mask, rois, scores and etc)"""
         return self.model.detect([image], verbose=1)

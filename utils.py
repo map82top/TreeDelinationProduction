@@ -2,6 +2,16 @@ from skimage.measure import find_contours
 
 
 def filter_prediction(prediction, min_score=0.7):
+    """Delete prediction crown which has score less then less min score
+
+    Used only prediction fron neural network
+    :param prediction: dictionary
+        prediction
+    :param min_score: int
+        crowns has score less then this value not added a new prediction
+    :return:
+        filtered prediction
+    """
     scores = prediction['scores']
     scores_filter = prediction['scores'] > min_score
     new_scores = scores[scores_filter]

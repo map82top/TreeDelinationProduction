@@ -10,6 +10,16 @@ from skimage.measure import find_contours
 
 
 def count_trees_on_image(image, min_area=100):
+    """Find crowns of trees with help algorithm watershed
+
+    :param image: numpy array
+        image on which need search crowns of trees
+    :param min_area: int
+        min area of crown
+        crown not recognized as a tree if its crown is less then this value
+    :return:
+        count detected crowns of trees and shapes of crowns as list of numpy arrays
+    """
     image = image.copy()
 
     filtering_image = cv2.bilateralFilter(image, 8, 40, 40)
@@ -49,10 +59,28 @@ def count_trees_on_image(image, min_area=100):
 
 
 def calculate_area_of_label(x, y):
+    """Find area of tree crown
+
+    :param x: numpy 1D array
+        x points of crown shape
+    :param y: numpy 1D array
+        y points of crown shape
+    :return: float
+        area of tree crown
+    """
     return 0.5 * np.abs(np.dot(x, np.roll(y, 1)) - np.dot(y, np.roll(x, 1)))
 
 
 def reduce_shape(shape, indent):
+    """Reduce shape using received indent
+
+    :param shape: numpy array
+        shape for decrease
+    :param indent: int
+        intent for decrease a received shape
+    :return: numpy array
+        new shape
+    """
 
     x_centre = np.mean(shape[:, 1], axis=0)
     y_centre = np.mean(shape[:, 0], axis=0)

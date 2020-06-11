@@ -3,6 +3,17 @@ import numpy as np
 
 
 def create_image_slices(big_image, split_img_width, split_img_height):
+    """Split a big image on many small image given size
+
+    :param big_image: numpy array
+        loaded into RAM a big image
+    :param split_img_width: int
+        width image on which a big image will be split
+    :param split_img_height: int
+        height image on which a big image will be split
+    :return:
+       list of slice from a big image
+    """
     height, width, channels = big_image.shape
     img_slices = list()
 
@@ -32,6 +43,15 @@ def create_image_slices(big_image, split_img_width, split_img_height):
 
 
 def create_union_image(list_with_slices, union_image_size):
+    """Union a list from small images into a big image
+
+    :param list_with_slices: list of numpy array
+        content images which need to union
+    :param union_image_size: numpy 1D array
+        array shape of big image (width, height, weight)
+    :return:
+        union image
+    """
     if len(list_with_slices) > 0:
         slice = list_with_slices[0].shape
 

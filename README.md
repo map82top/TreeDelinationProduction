@@ -106,3 +106,9 @@ Reduce size of split images
     count_trees, image = predict_big_image(path//to/weights, path//to//image, size_of_slice=250)
     
 ![Result prediction Mask R-CNN with reduce size of split image](/gallery/using_mask_rccn_with_increase_size_of_split_image.png)
+
+##Used research
+
+* <https://github.com/matterport/Mask_RCNN>
+* <https://github.com/mdcroce/TreeCrownSegmentation>
+* <https://github.com/jgarciabraga/MASK_RCNN_TCDD>

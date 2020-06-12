@@ -34,7 +34,7 @@ def predict_small_image(path_to_weights, path_to_small_image, visialise=True):
         return trees_in_prediction, None
 
 
-def predict_big_image(path_to_weights, path_to_big_image, size_of_slice=300, visialise=True):
+def predict_big_image(path_to_weights, path_to_big_image, size_of_slice=360, visialise=True):
     """Predict and draw crown of trees on a big image
 
     :param path_to_weights: str

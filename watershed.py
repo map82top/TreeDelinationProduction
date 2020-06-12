@@ -9,7 +9,7 @@ from skimage.morphology import rectangle
 from skimage.measure import find_contours
 
 
-def count_trees_on_image(image, min_area=100):
+def count_trees_on_image(image, min_area=100, d=8, sigmaColor=40, sigmaSpace=40, footprintSize=(43, 43)):
     """Find crowns of trees with help algorithm watershed
 
     :param image: numpy array
@@ -17,12 +17,20 @@ def count_trees_on_image(image, min_area=100):
     :param min_area: int
         min area of crown
         crown not recognized as a tree if its crown is less then this value
+    :param d: int
+        value of parameter d for bilateralFilter
+    :param sigmaColor: int
+        value of parameter sigmaColor for bilateralFilter
+    :param sigmaSpace: int
+        value of parameter sigmaSpace for bilateralFilter
+    :param footprintSize: tuple of int
+        size of space on which need to search local maximum
     :return:
         count detected crowns of trees and shapes of crowns as list of numpy arrays
     """
     image = image.copy()
 
-    filtering_image = cv2.bilateralFilter(image, 8, 40, 40)
+    filtering_image = cv2.bilateralFilter(image, d, sigmaColor, sigmaSpace)
 
     if filtering_image.ndim == 3:
         nir_image = filtering_image[:, :, 0]
@@ -34,7 +42,7 @@ def count_trees_on_image(image, min_area=100):
     binary_image = nir_image > local_otsu
 
     distance = ndimage.distance_transform_edt(binary_image)
-    local_maxi = peak_local_max(distance, indices=False, footprint=np.ones((43, 43)), labels=binary_image)
+    local_maxi = peak_local_max(distance, indices=False, footprint=np.ones(footprintSize), labels=binary_image)
     markers = morphology.label(local_maxi)
     markers[~binary_image.astype(bool)] = -1
 

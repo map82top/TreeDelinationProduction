@@ -28,7 +28,7 @@ For develop library used
     
 ### Result
 
-![Result work of watershed algorithm](/gallery/watershed_crowns_delination_result.png)
+![Result work of watershed algorithm](/gallery/watershed_crowns_delination_result.jpg)
     
 ### Search crowns with use Mask R-CNN neural network
 
@@ -43,7 +43,7 @@ For develop library used
     
 ### Result
 
-![Result prediction Mask R-CNN](/gallery/using_mask_rcnn_with_default_parameters.png)
+![Result prediction Mask R-CNN](/gallery/using_mask_rcnn_with_default_parameters.jpg)
 
 ## Settings
 
@@ -53,38 +53,38 @@ Using default parameters for Watershed algorithm
 
     count_trees, image = predict_small_image(path//to//image)
     
-![Using watershed with default parameters](/gallery/using_watershed_with_default_params.png)
+![Using watershed with default parameters](/gallery/using_watershed_with_default_params.jpg)
 
 Blur reduction away bilateral filter
 
     count_trees, image = predict_small_image(path//to//image, d=1, sigmaColor=10, sigmaSpace=10)
     
-![Using watershed with blur reduction](/gallery/using_watershed_with_blur_reduction.png)
+![Using watershed with blur reduction](/gallery/using_watershed_with_blur_reduction.jpg)
     
 Blur increase away bilateral filter
 
     count_trees, image = predict_small_image(path//to//image,  d=20, sigmaColor=150, sigmaSpace=150)
     
-![Using watershed with blur increase](/gallery/using_watershed_with_blur_increase.png)
+![Using watershed with blur increase](/gallery/using_watershed_with_blur_increase.jpg)
     
 Reduce the min area parameter of crowns filter
 
     count_trees, image = predict_small_image(path//to//image, min_area=20)
     
-![Reduce min area parameter](/gallery/using_watershed_with_reduce_min_area.png)
+![Reduce min area parameter](/gallery/using_watershed_with_reduce_min_area.jpg)
 
 
 Reduce the footprintSize parameter setting size of region for search local maximum
 
     count_trees, image = predict_small_image(path//to//image, footprintSize=(12, 12))
 
-![Reduce the footprintSize parameter](/gallery/using_watershed_wih_reduce_footprint_size.png)
+![Reduce the footprintSize parameter](/gallery/using_watershed_wih_reduce_footprint_size.jpg)
 
 Increase the footprintSize parameter setting size of region for search local maximum
 
      count_trees, image = predict_small_image(path//to//image, footprintSize=(70, 70))
      
-![Increase the footprintSize parameter](/gallery/using_watershed_with_increase_footprint_size.png)
+![Increase the footprintSize parameter](/gallery/using_watershed_with_increase_footprint_size.jpg)
 
 
 ###Setting of Mask R-CNN prediction
@@ -93,19 +93,19 @@ Using default parameters
 
     count_trees, image = predict_big_image(path//to/weights, path//to//image)
 
-![Result prediction Mask R-CNN with default parameters](/gallery/using_mask_rcnn_with_default_parameters.png)
+![Result prediction Mask R-CNN with default parameters](/gallery/using_mask_rcnn_with_default_parameters.jpg)
 
 Increase size of split images
 
     count_trees, image = predict_big_image(path//to/weights, path//to//image, size_of_slice=600)
     
-![Result prediction Mask R-CNN with increase size of split image](/gallery/using_mask_rccn_with_reduce_size_of_split_image.png)
+![Result prediction Mask R-CNN with increase size of split image](/gallery/using_mask_rccn_with_reduce_size_of_split_image.jpg)
 
 Reduce size of split images
 
     count_trees, image = predict_big_image(path//to/weights, path//to//image, size_of_slice=250)
     
-![Result prediction Mask R-CNN with reduce size of split image](/gallery/using_mask_rccn_with_increase_size_of_split_image.png)
+![Result prediction Mask R-CNN with reduce size of split image](/gallery/using_mask_rccn_with_increase_size_of_split_image.jpg)
 
 ##Used research
 

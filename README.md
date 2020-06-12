@@ -47,7 +47,7 @@ For develop library used
 
 ## Settings
 
-###Setting of watershed algorithm
+### Setting of watershed algorithm
 
 Using default parameters for Watershed algorithm
 
@@ -87,7 +87,7 @@ Increase the footprintSize parameter setting size of region for search local max
 ![Increase the footprintSize parameter](/gallery/using_watershed_with_increase_footprint_size.jpg)
 
 
-###Setting of Mask R-CNN prediction
+### Setting of Mask R-CNN prediction
 
 Using default parameters
 
@@ -107,7 +107,7 @@ Reduce size of split images
     
 ![Result prediction Mask R-CNN with reduce size of split image](/gallery/using_mask_rccn_with_increase_size_of_split_image.jpg)
 
-##Used research
+## Used research
 
 * <https://github.com/matterport/Mask_RCNN>
 * <https://github.com/mdcroce/TreeCrownSegmentation>

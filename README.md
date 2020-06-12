@@ -12,6 +12,8 @@ For develop library used
 * Python 3.7
 * CUDA 
 
+## Weights link
+<https://drive.google.com/file/d/16CbO5MelijlVenKuQ8UAf4sQWmuLBSYv/view?usp=sharing>
 
 ## Samples of use
 
